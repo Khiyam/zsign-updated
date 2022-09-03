@@ -3,6 +3,7 @@
 MacOs=darwin
 CentOs=yum
 Ubuntu=apt-get
+Alpine=apk
 CmakeV=3.21.3
 
 # Compile on MacOs
@@ -41,6 +42,21 @@ mkdir build; cd build &&
 cmake .. &&
 make
 
+
+
+# Compile on Alpine
+
+    # Detect OS if it is ubuntu
+    elif [ -x /sbin/$Alpine ]; then
+
+
+        # Dependencies
+apk add wget openssl git zip unzip build-base zlib-dev openssl-dev cmake
+
+# Compile zsign using cmake
+mkdir build; cd build &&
+cmake .. &&
+make
 
 # Compile on Ubuntu
 
